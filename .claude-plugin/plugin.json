@@ -1,0 +1,17 @@
+{
+  "name": "ResearcherZero",
+  "version": "0.1.0",
+  "description": "An AI researcher that autonomously learns, stores knowledge, and engages in research conversations",
+  "author": "ResearcherZero Team",
+  "skills": [
+    "skills/research-plan",
+    "skills/research-learn",
+    "skills/research-memory",
+    "skills/research-chat"
+  ],
+  "commands": [
+    "commands/learn.md",
+    "commands/status.md",
+    "commands/init-domain.md"
+  ]
+}

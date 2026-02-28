@@ -1,7 +1,12 @@
 [project]
 name = "researcher-zero-claude-based"
 version = "0.1.0"
-description = "Add your description here"
+description = "Claude-based AI researcher with academic search capabilities"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[dependency-groups]
+dev = []
