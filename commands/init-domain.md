@@ -31,12 +31,142 @@ description: 初始化一个新的研究领域
 - 询问是否要查看状态（建议使用 `/status $ARGUMENTS`）
 - 不要覆盖已有领域
 
-### 3. 从模板复制创建
+### 3. 创建领域文件
 
-如果领域不存在，从 `domains/_template/` 复制:
+如果领域不存在，创建目录结构并写入各文件内容:
 
 ```bash
-cp -r domains/_template domains/$ARGUMENTS
+mkdir -p domains/$ARGUMENTS/atomic_knowledge
+touch domains/$ARGUMENTS/atomic_knowledge/.gitkeep
+```
+
+然后逐一创建以下文件（使用 Write 工具写入模板内容）:
+
+**`domains/$ARGUMENTS/basic_info.md`**:
+```markdown
+# 基础信息
+
+<!-- 此文件存储领域的基础定义和概述 -->
+<!-- 用自然语言段落描述，不超过 500 字 -->
+
+## 领域定义
+
+[待补充：这个领域是什么？它研究什么问题？]
+
+## 核心概念
+
+[待补充：领域中的核心概念和术语]
+
+## 应用场景
+
+[待补充：这个领域的主要应用场景和价值]
+```
+
+**`domains/$ARGUMENTS/taxonomy.md`**:
+```markdown
+# 分类框架
+
+<!-- 此文件存储领域的分类体系 -->
+<!-- 使用 Markdown 层级结构表示 Category → Concept 的树形关系 -->
+
+## [类别 1]
+
+### [子类别 1.1]
+- [概念 A]
+- [概念 B]
+
+### [子类别 1.2]
+- [概念 C]
+
+## [类别 2]
+
+### [子类别 2.1]
+- [概念 D]
+- [概念 E]
+```
+
+**`domains/$ARGUMENTS/main_challenge.md`**:
+```markdown
+# 核心挑战
+
+<!-- 此文件存储领域的核心挑战和难点 -->
+<!-- 每个挑战包含：描述 + Benchmark + SOTA 状态 -->
+
+## 挑战 1: [挑战名称]
+
+**描述**: [挑战的具体描述]
+
+**相关 Benchmark**:
+- [Benchmark 名称]: [简要说明]
+
+**SOTA 状态**:
+- [当前最佳方法或性能水平]
+
+---
+
+## 挑战 2: [挑战名称]
+
+**描述**: [挑战的具体描述]
+
+**相关 Benchmark**:
+- [Benchmark 名称]: [简要说明]
+
+**SOTA 状态**:
+- [当前最佳方法或性能水平]
+```
+
+**`domains/$ARGUMENTS/network.md`**:
+```markdown
+# 概念网络
+
+<!-- 此文件存储概念之间的关系 -->
+<!-- 描述递进、因果、演化等关系 -->
+
+## 递进关系
+
+- [概念 A] → [概念 B]: [关系描述]
+- [概念 C] → [概念 D]: [关系描述]
+
+## 因果关系
+
+- [概念 X] 导致 [概念 Y]: [关系描述]
+
+## 演化关系
+
+- [早期方法] → [改进方法] → [最新方法]: [演化路径描述]
+
+## 对比关系
+
+- [方法 A] vs [方法 B]: [对比说明]
+```
+
+**`domains/$ARGUMENTS/human_preference.md`**:
+```markdown
+# 用户偏好
+
+<!-- 此文件存储用户在该领域的学习偏好和关注点 -->
+
+## 研究 vs 工程
+
+- [ ] 偏向理论研究
+- [ ] 偏向工程实践
+- [ ] 两者平衡
+
+## 内容深度
+
+- [ ] 高层概览即可
+- [ ] 需要技术细节
+- [ ] 深入算法原理
+
+## 新颖性 vs 可复现性
+
+- [ ] 关注最新前沿进展
+- [ ] 关注成熟可复现的方法
+- [ ] 两者兼顾
+
+## 特定关注点
+
+[用户在这个领域特别关注的主题、问题或方向]
 ```
 
 ### 4. 确认目录结构完整
@@ -133,9 +263,11 @@ if [ -d "domains/$ARGUMENTS" ]; then
 fi
 ```
 
-### 复制模板
+### 创建文件
 ```bash
-cp -r domains/_template domains/$ARGUMENTS
+mkdir -p domains/$ARGUMENTS/atomic_knowledge
+touch domains/$ARGUMENTS/atomic_knowledge/.gitkeep
+# 然后使用 Write 工具逐一创建各 .md 文件（内容见步骤 3）
 ```
 
 ### 验证文件完整性

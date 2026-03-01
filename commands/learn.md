@@ -65,7 +65,7 @@ allowed-tools: Bash(python *), Read, Write, Glob, Grep, WebSearch, WebFetch
 #### 按 research-memory 规则写入 domains/
 
 **新领域初始化**:
-- 如果领域不存在，从 `domains/_template/` 复制创建
+- 如果领域不存在，提示用户先运行 `/init-domain $DOMAIN` 再继续学习
 
 **更新文件**:
 - `basic_info.md`: 领域定义和概述
@@ -135,7 +135,6 @@ allowed-tools: Bash(python *), Read, Write, Glob, Grep, WebSearch, WebFetch
    → 获取到 5 篇 Survey，选择引用最高的 2 篇
    → 使用 WebFetch 阅读论文
    → 抽取知识并结构化
-   → 从 _template 创建 domains/agent-memory/
    → 更新 basic_info.md 和 taxonomy.md
    → 创建 atomic_knowledge/agent-memory-survey-2025.md
 
