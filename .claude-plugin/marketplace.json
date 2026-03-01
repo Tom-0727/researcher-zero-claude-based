@@ -1,0 +1,13 @@
+{
+    "name": "tom-ai-lab",
+    "owner": {
+      "name": "Linfeng(Tom)",
+      "email": "lingfenglau727@gmail.com"
+    },
+    "plugins": [
+      {
+        "name": "researcher-zero",
+        "source": "./"
+      }
+    ]
+  }
