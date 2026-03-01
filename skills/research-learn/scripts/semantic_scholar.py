@@ -15,6 +15,7 @@ Semantic Scholar API Search Tool
 
 import argparse
 import json
+import os
 import sys
 from typing import Optional
 import requests
@@ -25,17 +26,13 @@ class SemanticScholarSearcher:
 
     BASE_URL = "https://api.semanticscholar.org/graph/v1"
 
-    def __init__(self, api_key: Optional[str] = None):
-        """
-        初始化搜索器
-
-        Args:
-            api_key: Semantic Scholar API key (可选，有 key 可提高速率限制)
-        """
+    def __init__(self, api_key: str):
+        if not api_key:
+            print("Error: S2_API_KEY environment variable is required.", file=sys.stderr)
+            sys.exit(1)
         self.api_key = api_key
         self.session = requests.Session()
-        if api_key:
-            self.session.headers.update({"x-api-key": api_key})
+        self.session.headers.update({"x-api-key": api_key})
 
     def search(
         self,
@@ -143,11 +140,6 @@ def main():
         help="Comma-separated list of fields to return"
     )
     parser.add_argument(
-        "--api-key",
-        type=str,
-        help="Semantic Scholar API key (optional)"
-    )
-    parser.add_argument(
         "--format",
         type=str,
         choices=["json", "text"],
@@ -160,8 +152,8 @@ def main():
     # 解析 fields
     fields = args.fields.split(",") if args.fields else None
 
-    # 创建搜索器
-    searcher = SemanticScholarSearcher(api_key=args.api_key)
+    api_key = os.environ.get("S2_API_KEY", "").strip()
+    searcher = SemanticScholarSearcher(api_key=api_key)
 
     # 执行搜索
     results = searcher.search(
