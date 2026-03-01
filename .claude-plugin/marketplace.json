@@ -1,7 +1,8 @@
 {
-    "name": "tom-ai-lab",
+    "name": "researcher-zero",
     "owner": {
       "name": "Linfeng(Tom)",
+      "description": "Turn your Claude Code into a powerful AI researcher that can execute your learning tasks autonomously. It learns, stores knowledge, and engages in research conversations",
       "email": "lingfenglau727@gmail.com"
     },
     "plugins": [
