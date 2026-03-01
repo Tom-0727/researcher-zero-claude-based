@@ -1,5 +1,14 @@
-# 本地测试安装
-先把你的 plugin 放成标准目录，然后在 Claude Code 里通过本地 marketplace 安装：
-先建 .claude-plugin/marketplace.json，再执行：
-/plugin marketplace add ./你的-marketplace目录
-/plugin install 你的插件名@你的marketplace名
+# Reasearcher Zero Claude Coded Based Implementation
+## 使用步骤
+
+1.	打开 Claude Code
+2.	输入：
+```
+/plugin marketplace add Tom-0727/researcher-zero-claude-based
+```
+这会把你的 marketplace 加进去。 ￼
+3.	再输入：
+```
+/plugin install researcher-zero@tom-ai-lab
+```
+4. 在 Claude code 中输入 /plugin 自行探索安装即可
